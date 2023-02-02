@@ -10,4 +10,15 @@ describe Article do
     describe "assotiations" do
       it { should have_many :comments }
     end
-  end
+    
+    describe "#subject" do
+      it "returns the article title" do
+        #создаем объект article хитрым способом
+        #
+        article = create(:article, title: 'Lorem Ipsum')
+
+        #assert, проверка
+        expect(article.subject).to eq 'Lorem Ipsum'
+      end
+    end
+end
